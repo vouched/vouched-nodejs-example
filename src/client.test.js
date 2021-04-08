@@ -1,5 +1,4 @@
 const path = require('path');
-
 const { fetchApi, imageToBase64 } = require('./client');
 
 describe('invites', () => {

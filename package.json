@@ -1,7 +1,7 @@
 {
   "main": "dist/client/index.js",
   "name": "vouched-rest-nodejs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "Apache-2.0",
   "author": "John Cao",
   "private": true,
@@ -23,8 +23,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mime-types": "^2.1.21",
-    "node-fetch": "^2.6.0",
-    "sharp": "^0.24.1"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
