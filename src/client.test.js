@@ -1,5 +1,7 @@
 const path = require('path');
 const { fetchApi, imageToBase64 } = require('./client');
+const crypto = require('crypto');
+const config = require('./config');
 
 describe('invites', () => {
   test('invites unauthorized', async () => {
@@ -563,6 +565,24 @@ describe('aamva tests', () => {
       expect(job.result.featuresEnabled.physicalAddressBillable).toBe(false);
       expect(job.result.featuresEnabled.aamvaEnabled).toBe(false);
       expect(job.result.featuresEnabled.aamvaBillable).toBe(false);
+    },
+    30 * 1000
+  );
+});
+
+describe('webhook tests', () => {
+  test(
+    'job endpoint webhook validation',
+    async () => {
+      const api_key = config.API_KEY || "vcP*ywx#zQ.K57#G3wfP!ZwR5xzqv~"
+      const generated_token = config.X_SIGNATURE || "BeXsClk0e/aIQfhPtHDKQzGnCj8=";
+      const data = require("../data/response.json");
+      const dataString = JSON.stringify(data);
+      const token_value  = crypto
+      .createHmac('sha1', Buffer.from(api_key, 'utf-8'))
+      .update(Buffer.from(dataString, 'utf-8'))
+      .digest('base64');
+      expect(token_value === generated_token).toBe(true);
     },
     30 * 1000
   );
