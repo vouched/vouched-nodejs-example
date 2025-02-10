@@ -3,12 +3,12 @@ const fs = require('fs');
 const config = require('./config');
 
 // path to base64 string
-export const imageToBase64 = (path) => {
+export const imageToBase64 = path => {
   // read file from path
   const bitmap = fs.readFileSync(path);
   // convert buffer to base 64 string
-  return new Buffer(bitmap).toString('base64');
-}
+  return new Buffer.from(bitmap).toString('base64');
+};
 export const fetchApi = (
   path,
   { body = null, method = null, apiKey = config.API_KEY } = {}

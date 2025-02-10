@@ -9,7 +9,7 @@ This example repo consists of two parts
 #### 1. Install dependencies
 
 ```
-yarn install
+npm ci install
 ```
 
 #### 2. Add your Private Key
@@ -23,7 +23,7 @@ API_KEY=<PRIVATE_KEY>
 #### 3. Run the tests
 
 ```
-yarn test
+npm run test
 ```
 
 #### 4. View each endpoint and learn more
@@ -39,7 +39,7 @@ yarn test
 #### 1. Install dependencies
 
 ```
-yarn install
+npm ci install
 ```
 
 #### 2. Add your Public Key
